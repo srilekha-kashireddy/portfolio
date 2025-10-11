@@ -1,0 +1,174 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import PageLayout from "@/layouts/Base.astro";
+
+const skills = {
+	languages: ["Java", "Python", "JavaScript", "TypeScript", "SQL", "C"],
+	frontend: ["React", "Redux", "Next.js", "ShadCDN", "ChakraUI", "Tailwind CSS"],
+	backend: ["Spring Boot", "Node.js", "Express.js", "REST API", "WebSocket"],
+	databases: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+	aiml: ["TensorFlow", "PyTorch", "Hugging Face", "LangChain", "OpenAI API"],
+	devops: ["Docker", "Kubernetes", "Git", "CI/CD", "Postman"]
+};
+
+const projects = [
+	{
+		title: "Dev Collab - AI Powered Developer Hub",
+		description: "Full-stack real-time collaboration platform with LLM integration for auto-summarizing discussions and recommending project issues.",
+		tech: ["React", "Node.js", "PostgreSQL", "WebSocket", "LangChain", "OAuth2.0"],
+		highlights: [
+			"Real-time messaging with WebSocket",
+			"LLM-powered auto-summarization",
+			"OAuth2.0 authentication"
+		]
+	},
+	{
+		title: "Smart Energy Monitoring Platform",
+		description: "IoT energy tracking platform handling 10K+ data points per day with secure REST APIs and hybrid database architecture.",
+		tech: ["Java", "Spring Boot", "React", "MySQL", "MongoDB", "Docker"],
+		highlights: [
+			"JWT authentication & role-based access",
+			"Real-time + historical data tracking",
+			"Dockerized deployment with CI/CD"
+		]
+	}
+];
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<section class="mb-16">
+		<h1 class="title mb-6 text-4xl font-bold">Srilekha Kashireddy</h1>
+		<p class="mb-4 text-xl text-accent">Full-Stack Software Engineer</p>
+		<p class="mb-6 text-lg opacity-90">
+			Building scalable applications with Java, React, and AI. Passionate about creating efficient, 
+			user-centric solutions that solve real-world problems.
+		</p>
+		<div class="mb-6 flex flex-wrap gap-4">
+			<a href="mailto:srilekhakashireddy19@gmail.com" class="cactus-link">srilekhakashireddy19@gmail.com</a>
+			<span class="opacity-50">•</span>
+			<span>+1 (724) 972 8239</span>
+			<span class="opacity-50">•</span>
+			<span>Youngstown, OH</span>
+		</div>
+		<SocialList />
+	</section>
+
+	<section class="mb-16">
+		<h2 class="title mb-6 text-2xl">Experience</h2>
+		<div class="space-y-6">
+			<div class="rounded-lg border border-current/10 p-6 transition-colors hover:border-current/20">
+				<div class="mb-2 flex flex-wrap items-start justify-between gap-2">
+					<h3 class="text-xl font-semibold">Software Engineer Intern</h3>
+					<span class="text-sm opacity-70">Jan 2023 – July 2023</span>
+				</div>
+				<p class="mb-3 text-accent">Muvzen • Hyderabad, India</p>
+				<ul class="list-inside list-disc space-y-2 opacity-90">
+					<li>Developed core microservices using Java Spring Boot, improving response time by 35%</li>
+					<li>Built React/TypeScript dashboards, increasing user engagement by 20%</li>
+					<li>Implemented JWT authentication and OAuth2.0 for secure API access</li>
+					<li>Optimized database architecture with PostgreSQL and MongoDB</li>
+					<li>Automated deployments with Docker and CI/CD pipelines</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="mb-16">
+		<h2 class="title mb-6 text-2xl">Featured Projects</h2>
+		<div class="space-y-6">
+			{projects.map((project) => (
+				<div class="rounded-lg border border-current/10 p-6 transition-colors hover:border-current/20">
+					<h3 class="mb-2 text-xl font-semibold">{project.title}</h3>
+					<p class="mb-4 opacity-90">{project.description}</p>
+					<div class="mb-4">
+						<p class="mb-2 text-sm font-semibold text-accent">Key Features:</p>
+						<ul class="list-inside list-disc space-y-1 text-sm opacity-80">
+							{project.highlights.map((highlight) => (
+								<li>{highlight}</li>
+							))}
+						</ul>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						{project.tech.map((tech) => (
+							<span class="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium">
+								{tech}
+							</span>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="mt-6 text-center">
+			<a href="/projects/" class="cactus-link text-lg">View All Projects →</a>
+		</div>
+	</section>
+
+	<section class="mb-16">
+		<h2 class="title mb-6 text-2xl">Technical Skills</h2>
+		<div class="grid gap-4 sm:grid-cols-2">
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">Languages</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.languages.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">Frontend</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.frontend.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">Backend</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.backend.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">Databases</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.databases.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">AI & ML</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.aiml.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="rounded-lg border border-current/10 p-4">
+				<h3 class="mb-3 font-semibold text-accent">DevOps & Tools</h3>
+				<div class="flex flex-wrap gap-2">
+					{skills.devops.map((skill) => (
+						<span class="rounded bg-current/5 px-2 py-1 text-sm">{skill}</span>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mb-16">
+		<h2 class="title mb-6 text-2xl">Education</h2>
+		<div class="rounded-lg border border-current/10 p-6">
+			<div class="mb-2 flex flex-wrap items-start justify-between gap-2">
+				<h3 class="text-xl font-semibold">Master of Science in Computer Science</h3>
+				<span class="text-sm opacity-70">Aug 2023 – Dec 2025</span>
+			</div>
+			<p class="mb-2 text-accent">Youngstown State University</p>
+			<p class="mb-2 font-semibold">GPA: 4.0/4.0</p>
+			<p class="text-sm opacity-80">
+				Coursework: Web Application Development, Database Systems, Software Engineering, Data Structures
+			</p>
+		</div>
+	</section>
+</PageLayout>
