@@ -1,0 +1,136 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Portfolio of full-stack projects featuring AI integration, real-time systems, and scalable architectures",
+	title: "Projects",
+};
+
+const projects = [
+	{
+		title: "Dev Collab - AI Powered Developer Collaboration Hub",
+		subtitle: "Full Stack + LLM Integration",
+		description: "A comprehensive real-time collaboration platform designed for development teams, featuring AI-powered insights and seamless communication.",
+		longDescription: "Built a full-stack application that revolutionizes team collaboration by integrating LLM capabilities for intelligent auto-summarization of discussions and smart project issue recommendations. The platform provides real-time messaging, notifications, and team updates through WebSocket implementation.",
+		tech: ["React", "Node.js", "Express", "PostgreSQL", "WebSocket", "LangChain", "OAuth2.0"],
+		features: [
+			"Real-time messaging and notifications using WebSocket",
+			"LLM-powered auto-summarization of team discussions",
+			"AI-driven project issue recommendations",
+			"Secure OAuth2.0 authentication and authorization",
+			"Advanced PostgreSQL indexing for optimal performance",
+			"RESTful API architecture with comprehensive endpoints"
+		],
+		impact: [
+			"Seamless real-time team communication",
+			"Reduced meeting time through AI summarization",
+			"Improved project tracking and issue management"
+		]
+	},
+	{
+		title: "Smart Energy Monitoring Platform",
+		subtitle: "Java Full Stack + IoT",
+		description: "An enterprise-grade IoT platform for real-time energy tracking and analytics, handling thousands of data points daily.",
+		longDescription: "Developed a comprehensive full-stack IoT energy tracking platform using React and Spring Boot. The system processes and analyzes energy consumption data in real-time while maintaining historical records for trend analysis and reporting.",
+		tech: ["Java", "Spring Boot", "React", "MySQL", "MongoDB", "REST API", "JWT", "Docker"],
+		features: [
+			"Real-time energy data processing and visualization",
+			"Hybrid database architecture (MySQL + MongoDB)",
+			"Secure REST APIs with JWT authentication",
+			"Role-based access control (RBAC)",
+			"Encrypted data transmission",
+			"Dockerized deployment with CI/CD pipeline",
+			"Handles 10K+ energy data points per day"
+		],
+		impact: [
+			"Real-time monitoring of energy consumption",
+			"Historical data analysis for trend identification",
+			"Secure multi-user access with role management"
+		]
+	},
+	{
+		title: "Microservices Architecture at Muvzen",
+		subtitle: "Production System",
+		description: "Core microservices development for a production environment, focusing on performance optimization and scalability.",
+		longDescription: "Contributed to the development of critical microservices using Java Spring Boot, implementing best practices for distributed systems. Worked on optimizing response times, implementing secure authentication, and ensuring system reliability.",
+		tech: ["Java", "Spring Boot", "PostgreSQL", "MongoDB", "Docker", "JWT", "OAuth2.0"],
+		features: [
+			"Microservices architecture with Spring Boot",
+			"35% improvement in response time",
+			"JWT-based authentication system",
+			"OAuth2.0 authorization for internal APIs",
+			"Database optimization with PostgreSQL and MongoDB",
+			"Automated deployment with Docker and CI/CD"
+		],
+		impact: [
+			"35% faster response times",
+			"20% increase in user engagement",
+			"Reduced deployment downtime",
+			"Enhanced system security"
+		]
+	}
+];
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">Projects</h1>
+	<p class="mb-12 text-lg opacity-90">
+		A collection of full-stack applications showcasing expertise in modern web technologies, 
+		AI integration, and scalable system design.
+	</p>
+
+	<div class="space-y-12">
+		{projects.map((project, index) => (
+			<article class="rounded-lg border border-current/10 p-6 transition-colors hover:border-current/20">
+				<div class="mb-4">
+					<h2 class="mb-2 text-2xl font-bold">{project.title}</h2>
+					<p class="text-sm font-semibold text-accent">{project.subtitle}</p>
+				</div>
+
+				<p class="mb-4 text-lg opacity-90">{project.description}</p>
+				<p class="mb-6 opacity-80">{project.longDescription}</p>
+
+				<div class="mb-6">
+					<h3 class="mb-3 text-lg font-semibold">Key Features</h3>
+					<ul class="list-inside list-disc space-y-2 opacity-90">
+						{project.features.map((feature) => (
+							<li>{feature}</li>
+						))}
+					</ul>
+				</div>
+
+				<div class="mb-6">
+					<h3 class="mb-3 text-lg font-semibold">Impact</h3>
+					<ul class="list-inside list-disc space-y-2 opacity-90">
+						{project.impact.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+
+				<div>
+					<h3 class="mb-3 text-sm font-semibold text-accent">Technology Stack</h3>
+					<div class="flex flex-wrap gap-2">
+						{project.tech.map((tech) => (
+							<span class="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium">
+								{tech}
+							</span>
+						))}
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+
+	<section class="mt-16 rounded-lg border border-current/10 bg-accent/5 p-8 text-center">
+		<h2 class="mb-4 text-2xl font-bold">Interested in Working Together?</h2>
+		<p class="mb-6 opacity-90">
+			I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+		</p>
+		<div class="flex flex-wrap justify-center gap-4">
+			<a href="mailto:srilekhakashireddy19@gmail.com" class="cactus-link text-lg">
+				Get in Touch →
+			</a>
+		</div>
+	</section>
+</PageLayout>
